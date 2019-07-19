@@ -50,6 +50,7 @@ namespace WpfApp
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            //test
             Service1Client client = new Service1Client();
             var a = client.GetData(7);
             MessageBox.Show(a);
