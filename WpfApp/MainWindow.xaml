@@ -11,6 +11,7 @@
             <Button Content="StartService" Width="75" IsDefault="True" Click="Button_Click"/>
         </Button>
         <Button Content="StopService" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="104,2,0,0" Click="Button_Click_1"/>
+        <Button Content="Generate Dummy Data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="215,2,0,0" IsCancel="True" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

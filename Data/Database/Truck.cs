@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace Data.Database
 {
-    public class Class1
+    public class Truck
     {
+        public int TruckId { get; set; }
+        public Shipment Shipment { get; set; }
     }
 }

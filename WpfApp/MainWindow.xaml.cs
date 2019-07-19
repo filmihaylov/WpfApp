@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -55,6 +56,12 @@ namespace WpfApp
             var a = client.GetData(7);
             MessageBox.Show(a);
             host.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            DbOpp db = new DbOpp();
+            db.CreateDummyData(30);
         }
     }
 }
