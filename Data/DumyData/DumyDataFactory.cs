@@ -14,48 +14,51 @@ namespace Data.DumyData
         {
             return new Adress()
             {
+
                 City = RandomString(4),
                 Street = RandomString(4),
-                Country = RandomString(5)
-
+                Country = RandomString(5),
             };
         }
 
-        public Customer GenerateCustomer()
+        public Customer GenerateCustomer(Adress adress)
         {
             return new Customer()
             {
                 Age = RandomNumber(),
                 LastName = RandomString(4),
-                Name = RandomString(5)
+                Name = RandomString(5),
+                Adresses = new List<Adress> { adress }
             };
         }
 
-        public Package GeneratePackage()
+        public Package GeneratePackage(Adress adress)
         {
             return new Package()
-            {
+            {            
                 Condition = States.PackageCondition.Unknown,
                 Status = States.PackageState.NotDelivered,
-                Customer = this.GenerateCustomer()
+                Customer = this.GenerateCustomer(adress)
             };
         }
 
-        public Shipment GenerateShipment()
+        public Shipment GenerateShipment( Customer customer, Adress adress)
         {
             return new Shipment()
-            {
-                Adress = this.GenerateAdress(),
+            {           
+                Adress = adress,
                 Status = States.ShipmentState.InTruck,
-                Packages = new List<Package> { this.GeneratePackage() }
+                Packages = new List<Package> { this.GeneratePackage(adress) }
             };
         }
 
         public Truck GenerateTruck()
         {
+            Adress adress = this.GenerateAdress();
+            Customer customer = this.GenerateCustomer(adress);
             return new Truck()
             {
-                Shipment = new List<Shipment> { this.GenerateShipment() }
+                Shipment = new List<Shipment> { this.GenerateShipment(customer, adress) }
             };
         }
 

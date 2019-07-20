@@ -14,6 +14,5 @@ namespace Data.Database
         public  Customer Customer { get; set; }
         public PackageCondition Condition { get; set; }
         public virtual Shipment Shipment { get; set; }
-        public Adress Adress { get; set; }
     }
 }
