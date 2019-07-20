@@ -19,8 +19,6 @@ namespace Data.Database
         [DataMember]
         public int Age { get; set; }
         [DataMember]
-        public List<Package> Packages { get; set; }
-        [DataMember]
         public Adress Adresses { get; set; }
     }
 }
