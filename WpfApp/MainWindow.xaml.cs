@@ -33,19 +33,8 @@ namespace WpfApp
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Truck t = new Truck();
-
-            t.Id = 1;
-
-
-            var a = client.GetShipments(t, 0, 1);
-
-            foreach(var b in a)
-            {
-                var c = b.Id;
-            }
-            //DbOpp db = new DbOpp();
-            //db.CreateDummyData(1);
+            DbOpp db = new DbOpp();
+            db.CreateDummyData(1);
         }
     }
 }

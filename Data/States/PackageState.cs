@@ -11,12 +11,8 @@ namespace Data.States
     public enum PackageState
     {
         [EnumMember]
-        TakenByCustomer,
+        CustomerNotHome,
         [EnumMember]
-        LeftInfrontDoor,
-        [EnumMember]
-        Returned,
-        [EnumMember]
-        NotDelivered
+        CustomerWasHome
     }
 }

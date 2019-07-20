@@ -3,24 +3,22 @@
   <xs:simpleType name="PackageCondition">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Damaged" />
-      <xs:enumeration value="Unknown" />
       <xs:enumeration value="NotDamaged" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="PackageCondition" nillable="true" type="tns:PackageCondition" />
   <xs:simpleType name="PackageState">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="TakenByCustomer" />
-      <xs:enumeration value="LeftInfrontDoor" />
-      <xs:enumeration value="Returned" />
-      <xs:enumeration value="NotDelivered" />
+      <xs:enumeration value="CustomerNotHome" />
+      <xs:enumeration value="CustomerWasHome" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="PackageState" nillable="true" type="tns:PackageState" />
   <xs:simpleType name="ShipmentState">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="InTruck" />
+      <xs:enumeration value="HeldInTrck" />
       <xs:enumeration value="Delivered" />
+      <xs:enumeration value="OutForDelivery" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ShipmentState" nillable="true" type="tns:ShipmentState" />

@@ -16,7 +16,8 @@
   <xs:element name="ArrayOfShipment" nillable="true" type="tns:ArrayOfShipment" />
   <xs:complexType name="Shipment">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Adress" nillable="true" type="tns:Adress" />
+      <xs:element minOccurs="0" name="AdressDelivery" nillable="true" type="tns:Adress" />
+      <xs:element minOccurs="0" name="AdressSender" nillable="true" type="tns:Adress" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Packages" nillable="true" type="tns:ArrayOfPackage" />
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="Status" type="q1:ShipmentState" />
@@ -67,8 +68,10 @@
   <xs:complexType name="Package">
     <xs:sequence>
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="Condition" type="q2:PackageCondition" />
-      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+      <xs:element minOccurs="0" name="CustomerReceiver" nillable="true" type="tns:Customer" />
+      <xs:element minOccurs="0" name="CustomerSender" nillable="true" type="tns:Customer" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Shipment" nillable="true" type="tns:Shipment" />
       <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="Status" type="q3:PackageState" />
     </xs:sequence>

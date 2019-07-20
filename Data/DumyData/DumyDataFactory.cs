@@ -32,33 +32,40 @@ namespace Data.DumyData
             };
         }
 
-        public Package GeneratePackage(Adress adress)
+        public Package GeneratePackage(Adress adressSender, Adress adressReceiver)
         {
             return new Package()
             {            
-                Condition = States.PackageCondition.Unknown,
-                Status = States.PackageState.NotDelivered,
-                Customer = this.GenerateCustomer(adress)
+                CustomerSender = this.GenerateCustomer(adressSender),
+                CustomerReceiver = this.GenerateCustomer(adressReceiver)
+                
             };
         }
 
-        public Shipment GenerateShipment( Customer customer, Adress adress)
+        public Shipment GenerateShipment( Customer customer, Adress adressDelivery, Adress adressSender)
         {
             return new Shipment()
             {           
-                Adress = adress,
-                Status = States.ShipmentState.InTruck,
-                Packages = new List<Package> { this.GeneratePackage(adress) }
+                AdressDelivery = adressDelivery,
+                AdressSender = adressSender,
+                Status = States.ShipmentState.OutForDelivery,
+                Packages = new List<Package> { this.GeneratePackage(adressDelivery, adressSender), this.GeneratePackage(adressDelivery, adressSender) }
             };
         }
 
         public Truck GenerateTruck()
         {
-            Adress adress = this.GenerateAdress();
-            Customer customer = this.GenerateCustomer(adress);
+            List<Shipment> shipments = new List<Shipment>();
+            for (int i=0; i < 150; i++)
+            {
+                Adress adressDelivery = this.GenerateAdress();
+                Adress adressSender = this.GenerateAdress();
+                Customer customer = this.GenerateCustomer(adressDelivery);
+                shipments.Add(this.GenerateShipment(customer, adressDelivery, adressSender));
+            }
             return new Truck()
             {
-                Shipment = new List<Shipment> { this.GenerateShipment(customer, adress) }
+                Shipment = shipments
             };
         }
 

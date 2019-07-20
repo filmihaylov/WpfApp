@@ -13,8 +13,6 @@ namespace Data.States
         [EnumMember]
         Damaged,
         [EnumMember]
-        Unknown,
-        [EnumMember]
         NotDamaged
     }
 }

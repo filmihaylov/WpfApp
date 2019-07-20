@@ -16,10 +16,15 @@ namespace Data.Database
         [DataMember]
         public PackageState Status { get; set; }
         [DataMember]
-        public  Customer Customer { get; set; }
+        public  Customer CustomerSender { get; set; }
+        [DataMember]
+        public Customer CustomerReceiver { get; set; }
         [DataMember]
         public PackageCondition Condition { get; set; }
         [DataMember]
+        public string Notes { get; set; }
+        [DataMember]
         public virtual Shipment Shipment { get; set; }
+
     }
 }

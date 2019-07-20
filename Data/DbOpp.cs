@@ -48,20 +48,6 @@ namespace Data
             db.SaveChanges();
 
         }
-
-        public void test()
-        {
-            var a = db.Trucks.Where(t => t.Id == 1).Include(s => s.Shipment).FirstOrDefault();
-
-            var p = a.Shipment;
-
-            var c = db.Packages.Where(m => m.Shipment.Id == m.Shipment.Id).Include(m => m.Customer).FirstOrDefault();
-
-            var z = db.Customers.Where(y => y.Id == c.Customer.Id).Include(y => y.Adresses).FirstOrDefault();
-
-            var tm = "fsfs";
-
-        }
-        
+       
     }
 }

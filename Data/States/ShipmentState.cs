@@ -11,8 +11,11 @@ namespace Data.States
     public enum ShipmentState
     {
         [EnumMember]
-        InTruck,
+        HeldInTrck,
         [EnumMember]
-        Delivered
+        Delivered,
+        [EnumMember]
+        OutForDelivery
+
     }
 }

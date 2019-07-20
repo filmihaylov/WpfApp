@@ -16,7 +16,9 @@ namespace Data.Database
         [DataMember]
         public ShipmentState Status { get; set; }
         [DataMember]
-        public Adress Adress { get; set; }
+        public Adress AdressDelivery { get; set; }
+        [DataMember]
+        public Adress AdressSender { get; set; }
         [DataMember]
         public List<Package> Packages { get; set; }
         [DataMember]
