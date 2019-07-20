@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Data.Database" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Data.Database" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Data.States" />
+  <xs:complexType name="Truck">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Shipment" nillable="true" type="tns:ArrayOfShipment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Truck" nillable="true" type="tns:Truck" />
+  <xs:complexType name="ArrayOfShipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Shipment" nillable="true" type="tns:Shipment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShipment" nillable="true" type="tns:ArrayOfShipment" />
+  <xs:complexType name="Shipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adress" nillable="true" type="tns:Adress" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Packages" nillable="true" type="tns:ArrayOfPackage" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="Status" type="q1:ShipmentState" />
+      <xs:element minOccurs="0" name="Truck" nillable="true" type="tns:Truck" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Shipment" nillable="true" type="tns:Shipment" />
+  <xs:complexType name="Adress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:ArrayOfCustomer" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Shipments" nillable="true" type="tns:ArrayOfShipment" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Adress" nillable="true" type="tns:Adress" />
+  <xs:complexType name="ArrayOfCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adresses" nillable="true" type="tns:ArrayOfAdress" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Packages" nillable="true" type="tns:ArrayOfPackage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ArrayOfAdress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Adress" nillable="true" type="tns:Adress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdress" nillable="true" type="tns:ArrayOfAdress" />
+  <xs:complexType name="ArrayOfPackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Package" nillable="true" type="tns:Package" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackage" nillable="true" type="tns:ArrayOfPackage" />
+  <xs:complexType name="Package">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="Condition" type="q2:PackageCondition" />
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Shipment" nillable="true" type="tns:Shipment" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="Status" type="q3:PackageState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Package" nillable="true" type="tns:Package" />
+</xs:schema>

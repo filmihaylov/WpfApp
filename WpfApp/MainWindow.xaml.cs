@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp.ServiceReference1;
+using WpfApp.DeliveryService;
+
 
 namespace WpfApp
 {
@@ -23,7 +25,7 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Service1Client client = new Service1Client();
+        private DeliveryServiceClient client = new DeliveryServiceClient();
         public MainWindow()
         {
             InitializeComponent();
@@ -31,9 +33,17 @@ namespace WpfApp
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var a = client.GetData(7);
+            Truck t = new Truck();
 
-            var b = "dsfsf";
+            t.Id = 1;
+
+
+            var a = client.GetShipments(t, 0, 1);
+
+            foreach(var b in a)
+            {
+                var c = b.Id;
+            }
             //DbOpp db = new DbOpp();
             //db.CreateDummyData(1);
         }
