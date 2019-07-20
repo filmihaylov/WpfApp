@@ -23,45 +23,19 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        ServiceHost host = null;
+        private Service1Client client = new Service1Client();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                using (host =
-                        new ServiceHost(typeof(Service.Service1)))
-                {
-                    host.AddServiceEndpoint(typeof(Service.IService1),
-                       new BasicHttpBinding(), "http://localhost:8733/Design_Time_Addresses/Service/Service1/");
-
-                    host.Open();
-                }
-            }
-            catch (Exception ex)
-            {
-                host.Abort();
-                MessageBox.Show("Error = " + ex.Message);
-            }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            //test
-            Service1Client client = new Service1Client();
-            var a = client.GetData(7);
-            MessageBox.Show(a);
-            host.Close();
-        }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            DbOpp db = new DbOpp();
-            db.CreateDummyData(1);
+            var a = client.GetData(7);
+
+            var b = "dsfsf";
+            //DbOpp db = new DbOpp();
+            //db.CreateDummyData(1);
         }
     }
 }
