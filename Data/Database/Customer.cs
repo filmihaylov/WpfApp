@@ -21,6 +21,6 @@ namespace Data.Database
         [DataMember]
         public List<Package> Packages { get; set; }
         [DataMember]
-        public List<Adress> Adresses { get; set; }
+        public Adress Adresses { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace Data.DumyData
                 Age = RandomNumber(),
                 LastName = RandomString(4),
                 Name = RandomString(5),
-                Adresses = new List<Adress> { adress }
+                Adresses = adress
             };
         }
 

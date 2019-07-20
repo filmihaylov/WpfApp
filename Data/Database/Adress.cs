@@ -18,9 +18,6 @@ namespace Data.Database
         public string Country { get; set; }
         [DataMember]
         public string City { get; set; }
-        [DataMember]
-        public virtual List<Shipment> Shipments { get; set; }
-        [DataMember]
-        public virtual List<Customer> Customers { get; set; }
+
     }
 }

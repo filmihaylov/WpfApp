@@ -16,3 +16,4 @@ namespace Data.Database
         public DbSet<Adress> Adresess { get; set; }
     }
 }
+

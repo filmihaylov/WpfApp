@@ -2,6 +2,7 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Data.States" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Data.States" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:simpleType name="PackageCondition">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
       <xs:enumeration value="Damaged" />
       <xs:enumeration value="NotDamaged" />
     </xs:restriction>
@@ -9,6 +10,7 @@
   <xs:element name="PackageCondition" nillable="true" type="tns:PackageCondition" />
   <xs:simpleType name="PackageState">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
       <xs:enumeration value="CustomerNotHome" />
       <xs:enumeration value="CustomerWasHome" />
     </xs:restriction>
@@ -16,9 +18,9 @@
   <xs:element name="PackageState" nillable="true" type="tns:PackageState" />
   <xs:simpleType name="ShipmentState">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="OutForDelivery" />
       <xs:enumeration value="HeldInTrck" />
       <xs:enumeration value="Delivered" />
-      <xs:enumeration value="OutForDelivery" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ShipmentState" nillable="true" type="tns:ShipmentState" />

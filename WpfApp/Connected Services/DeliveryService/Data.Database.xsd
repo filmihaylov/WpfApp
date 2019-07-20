@@ -29,36 +29,11 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:ArrayOfCustomer" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Shipments" nillable="true" type="tns:ArrayOfShipment" />
       <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Adress" nillable="true" type="tns:Adress" />
-  <xs:complexType name="ArrayOfCustomer">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
-  <xs:complexType name="Customer">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Adresses" nillable="true" type="tns:ArrayOfAdress" />
-      <xs:element minOccurs="0" name="Age" type="xs:int" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Packages" nillable="true" type="tns:ArrayOfPackage" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Customer" nillable="true" type="tns:Customer" />
-  <xs:complexType name="ArrayOfAdress">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Adress" nillable="true" type="tns:Adress" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfAdress" nillable="true" type="tns:ArrayOfAdress" />
   <xs:complexType name="ArrayOfPackage">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Package" nillable="true" type="tns:Package" />
@@ -77,4 +52,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Package" nillable="true" type="tns:Package" />
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adresses" nillable="true" type="tns:Adress" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Packages" nillable="true" type="tns:ArrayOfPackage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
 </xs:schema>

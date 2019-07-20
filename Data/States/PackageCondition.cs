@@ -11,6 +11,8 @@ namespace Data.States
     public enum PackageCondition
     {
         [EnumMember]
+        Unknown,
+        [EnumMember]
         Damaged,
         [EnumMember]
         NotDamaged

@@ -11,6 +11,8 @@ namespace Data.States
     public enum PackageState
     {
         [EnumMember]
+        Unknown,
+        [EnumMember]
         CustomerNotHome,
         [EnumMember]
         CustomerWasHome
