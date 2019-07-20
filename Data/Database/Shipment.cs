@@ -12,6 +12,6 @@ namespace Data.Database
         public int ShipmentId { get; set; }
         public ShipmentState Status { get; set; }
         public virtual Adress Adress { get; set; }
-        public List<Package> Packages { get; set; }
+        public IEnumerable<Package> Packages { get; set; }
     }
 }

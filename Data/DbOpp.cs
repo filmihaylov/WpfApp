@@ -10,7 +10,15 @@ namespace Data
 {
     public class DbOpp
     {
-        DeliveryContext db = new DeliveryContext();
+        DeliveryContext db;
+
+        public DbOpp()
+        {
+            this.db = new DeliveryContext();
+
+        }
+
+
         public void CreateDummyData(int entities)
         {
             DumyDataFactory fact = new DumyDataFactory();

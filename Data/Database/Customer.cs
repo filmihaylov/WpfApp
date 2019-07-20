@@ -12,7 +12,7 @@ namespace Data.Database
         public string Name { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
-        public List<Adress> Adress { get; set; }
+        public IEnumerable<Adress> Adress { get; set; }
 
     }
 }
