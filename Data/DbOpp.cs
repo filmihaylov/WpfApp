@@ -32,9 +32,11 @@ namespace Data
 
         public List<Shipment> GetShipments(Truck truck, int skip=0, int take=25)
         {
-            var truckWithShipmets = db.Trucks.Where(t => t.Id == truck.Id).Include(s => s.Shipment).FirstOrDefault();
+            this.db.Configuration.ProxyCreationEnabled = false;
 
-            return truckWithShipmets.Shipment.Skip(skip).Take(take).ToList();
+            var shipments = db.Shipments.Where(s => s.Truck.Id == truck.Id).ToList();
+            
+            return shipments.Skip(skip).Take(take).ToList();
         }
 
         public void UpdateShipment(Shipment shipment, ShipmentState state)
