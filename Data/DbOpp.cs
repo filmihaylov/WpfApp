@@ -2,6 +2,7 @@
 using Data.DumyData;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,20 +22,19 @@ namespace Data
 
         public void CreateDummyData(int entities)
         {
-            DumyDataFactory fact = new DumyDataFactory();
-            for(int i = 0; i<entities; i++)
-            {
-                db.Shipments.Add(fact.GenerateShipment());
-            }
+        //    DumyDataFactory fact = new DumyDataFactory();
+       //     for(int i = 0; i<entities; i++)
+       //     {
+      //          db.Trucks.Add(fact.GenerateTruck());
+      //      }
 
-            db.SaveChanges();
+      //      db.SaveChanges();
 
-            var a = db.Shipments.SingleOrDefault<Shipment>(x => x.ShipmentId == 1);
+            
+            var a = db.Trucks.Where(t=>t.Id == 1).Include(s=>s.Shipment).FirstOrDefault();
 
-            foreach(var p in a.Packages)
-            {
-                var c = p.Status;
-            }
+            var p = a.Shipment;
+
         }
     }
 }

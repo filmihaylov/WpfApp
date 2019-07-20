@@ -61,7 +61,7 @@ namespace WpfApp
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             DbOpp db = new DbOpp();
-            db.CreateDummyData(30);
+            db.CreateDummyData(1);
         }
     }
 }

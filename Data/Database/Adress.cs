@@ -8,9 +8,12 @@ namespace Data.Database
 {
     public class Adress
     {
-        public int AdressId { get; set; }
+        public int Id { get; set; }
         public string Street { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
+        public virtual List<Shipment> Shipments { get; set; }
+
+        public virtual List<Customer> Customers { get; set; }
     }
 }

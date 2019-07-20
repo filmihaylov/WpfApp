@@ -9,9 +9,10 @@ namespace Data.Database
 {
     public class Shipment
     {
-        public int ShipmentId { get; set; }
+        public int Id { get; set; }
         public ShipmentState Status { get; set; }
-        public virtual Adress Adress { get; set; }
-        public IEnumerable<Package> Packages { get; set; }
+        public Adress Adress { get; set; }
+        public List<Package> Packages { get; set; }
+        public virtual Truck Truck { get; set; }
     }
 }

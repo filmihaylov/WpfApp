@@ -9,9 +9,11 @@ namespace Data.Database
 {
     public class Package
     {
-        public int PackageId { get; set; }
+        public int Id { get; set; }
         public PackageState Status { get; set; }
-        public virtual Customer Customer { get; set; }
+        public  Customer Customer { get; set; }
         public PackageCondition Condition { get; set; }
+        public virtual Shipment Shipment { get; set; }
+        public Adress Adress { get; set; }
     }
 }

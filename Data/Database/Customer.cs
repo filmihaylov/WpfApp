@@ -8,11 +8,12 @@ namespace Data.Database
 {
     public class Customer
     {
-        public int CustomerId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
-        public IEnumerable<Adress> Adress { get; set; }
+        public List<Package> Packages { get; set; }
 
+        public List<Adress> Adresses { get; set; }
     }
 }

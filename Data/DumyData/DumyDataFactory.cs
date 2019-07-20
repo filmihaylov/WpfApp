@@ -25,7 +25,6 @@ namespace Data.DumyData
         {
             return new Customer()
             {
-                Adress = new List<Adress> { this.GenerateAdress() },
                 Age = RandomNumber(),
                 LastName = RandomString(4),
                 Name = RandomString(5)
@@ -49,6 +48,14 @@ namespace Data.DumyData
                 Adress = this.GenerateAdress(),
                 Status = States.ShipmentState.InTruck,
                 Packages = new List<Package> { this.GeneratePackage() }
+            };
+        }
+
+        public Truck GenerateTruck()
+        {
+            return new Truck()
+            {
+                Shipment = new List<Shipment> { this.GenerateShipment() }
             };
         }
 

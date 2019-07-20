@@ -9,6 +9,6 @@ namespace Data.Database
     public class Truck
     {
         public int Id { get; set; }
-        public Shipment Shipment { get; set; }
+        public List<Shipment> Shipment { get; set; }
     }
 }
