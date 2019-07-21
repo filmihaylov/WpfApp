@@ -31,4 +31,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetPackages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Data.Database" minOccurs="0" name="shipment" nillable="true" type="q5:Shipment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Data.Database" minOccurs="0" name="GetPackagesResult" nillable="true" type="q6:ArrayOfPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -114,6 +114,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Data.Database.Package.datasource" />
     <None Include="Properties\DataSources\Data.Database.Shipment.datasource" />
     <None Include="Properties\DataSources\Service.CompositeType.datasource" />
     <None Include="Properties\Settings.settings">

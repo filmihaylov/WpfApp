@@ -20,6 +20,12 @@
   <wsdl:message name="IDeliveryService_UpdateShipment_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateShipmentResponse" />
   </wsdl:message>
+  <wsdl:message name="IDeliveryService_GetPackages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackages" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryService_GetPackages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackagesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDeliveryService">
     <wsdl:operation name="GetShipments">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryService/GetShipments" message="tns:IDeliveryService_GetShipments_InputMessage" />
@@ -28,6 +34,10 @@
     <wsdl:operation name="UpdateShipment">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryService/UpdateShipment" message="tns:IDeliveryService_UpdateShipment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryService/UpdateShipmentResponse" message="tns:IDeliveryService_UpdateShipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryService/GetPackages" message="tns:IDeliveryService_GetPackages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryService/GetPackagesResponse" message="tns:IDeliveryService_GetPackages_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDeliveryService" type="tns:IDeliveryService">
@@ -43,6 +53,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateShipment">
       <soap:operation soapAction="http://tempuri.org/IDeliveryService/UpdateShipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackages">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryService/GetPackages" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

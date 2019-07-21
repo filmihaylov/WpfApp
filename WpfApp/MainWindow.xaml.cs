@@ -44,6 +44,9 @@ namespace WpfApp
         {
             var a = client.GetShipments(new Truck() { Id = 1 }, 0, 25);
             var t = "fdfdf";
+
+            var b = client.GetPackages(new Shipment() { Id = 1 });
+            var z = "fdfdf";
         }
     }
 }

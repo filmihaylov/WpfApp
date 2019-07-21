@@ -19,7 +19,8 @@ namespace Service
 
         [OperationContract]
         void UpdateShipment(Shipment shipment, ShipmentState state);
-
+        [OperationContract]
+        List<Package> GetPackages(Shipment shipment);
     }
 
 }

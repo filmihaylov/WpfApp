@@ -34,9 +34,18 @@ namespace Data
         {
             this.db.Configuration.ProxyCreationEnabled = false;
 
-            var shipments = db.Shipments.Where(s => s.Truck.Id == truck.Id).ToList();
+            var shipments = db.Shipments.Where(s => s.Truck.Id == truck.Id).Include(s=>s.AdressSender).Include(s=>s.AdressDelivery).ToList();
             
             return shipments.Skip(skip).Take(take).ToList();
+        }
+
+        public List<Package> GetPackages(Shipment shipment)
+        {
+            this.db.Configuration.ProxyCreationEnabled = false;
+
+            var packages = db.Packages.Where(p => p.Id == shipment.Id).Include(p=>p.CustomerReceiver).Include(p=>p.CustomerSender).ToList();
+
+            return packages;
         }
 
         public void UpdateShipment(Shipment shipment, ShipmentState state)

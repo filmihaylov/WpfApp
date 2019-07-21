@@ -26,6 +26,12 @@ namespace WpfApp.DeliveryService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeliveryService/UpdateShipment", ReplyAction="http://tempuri.org/IDeliveryService/UpdateShipmentResponse")]
         System.Threading.Tasks.Task UpdateShipmentAsync(Data.Database.Shipment shipment, Data.States.ShipmentState state);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeliveryService/GetPackages", ReplyAction="http://tempuri.org/IDeliveryService/GetPackagesResponse")]
+        Data.Database.Package[] GetPackages(Data.Database.Shipment shipment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeliveryService/GetPackages", ReplyAction="http://tempuri.org/IDeliveryService/GetPackagesResponse")]
+        System.Threading.Tasks.Task<Data.Database.Package[]> GetPackagesAsync(Data.Database.Shipment shipment);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace WpfApp.DeliveryService {
         
         public System.Threading.Tasks.Task UpdateShipmentAsync(Data.Database.Shipment shipment, Data.States.ShipmentState state) {
             return base.Channel.UpdateShipmentAsync(shipment, state);
+        }
+        
+        public Data.Database.Package[] GetPackages(Data.Database.Shipment shipment) {
+            return base.Channel.GetPackages(shipment);
+        }
+        
+        public System.Threading.Tasks.Task<Data.Database.Package[]> GetPackagesAsync(Data.Database.Shipment shipment) {
+            return base.Channel.GetPackagesAsync(shipment);
         }
     }
 }

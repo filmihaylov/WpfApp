@@ -25,6 +25,18 @@ namespace Service
             return db.GetShipments(truck, skip, take);
         }
 
+        public List<Package> GetPackages(Shipment shipment)
+        {
+            if (shipment == null)
+            {
+                throw new ArgumentNullException("truck");
+            }
+
+            DbOpp db = new DbOpp();
+
+            return db.GetPackages(shipment);
+        }
+
         public void UpdateShipment(Shipment shipment, ShipmentState state)
         {
             if (shipment == null)
