@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp
@@ -18,7 +17,7 @@ namespace WpfApp
     /// <summary>
     /// Interaction logic for ShipmentDetail.xaml
     /// </summary>
-    public partial class ShipmentDetail : Page
+    public partial class ShipmentDetail : Window
     {
         public ShipmentDetail()
         {

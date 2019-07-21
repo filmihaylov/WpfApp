@@ -12,8 +12,9 @@
         <DataGrid Name="shipmentListGrid" HorizontalAlignment="Left" Height="291" VerticalAlignment="Top" Width="772" Margin="10,63,0,0"
                 ScrollViewer.CanContentScroll="True" 
                 ScrollViewer.VerticalScrollBarVisibility="Auto"
-                ScrollViewer.HorizontalScrollBarVisibility="Auto">
-        </DataGrid>
-
+                ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                SelectionMode="Single" SelectionUnit ="FullRow"       
+                MouseLeftButtonUp="shipmentListGrid_CellClicked"
+                  />
     </Grid>
 </Window>

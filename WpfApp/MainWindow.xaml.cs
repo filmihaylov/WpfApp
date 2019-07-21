@@ -50,6 +50,15 @@ namespace WpfApp
             var z = "fdfdf";
         }
 
+        private void shipmentListGrid_CellClicked(object sender, MouseButtonEventArgs e)
+        {
+            DataGrid castedSender =  (DataGrid)sender;
+            var selectedShipmentIdentifier = (ShipmentListDTO)castedSender.SelectedValue;
+            int shipmentID = selectedShipmentIdentifier.Indentifier;
+            var newForm = new ShipmentDetail(); 
+            newForm.Show();
+        }
+
         private List<ShipmentListDTO> GetShipments(int skip, int take, int truckId =1)
         {
             var shipments = client.GetShipments(new Truck() { Id = 1 }, 0, 25);
