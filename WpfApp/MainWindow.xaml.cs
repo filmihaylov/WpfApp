@@ -26,6 +26,7 @@ namespace WpfApp
     public partial class MainWindow : Window
     {
         private DeliveryServiceClient client = new DeliveryServiceClient();
+        private List<Shipment> displayedShipments;
         public MainWindow()
         {
             InitializeComponent();
@@ -55,18 +56,21 @@ namespace WpfApp
             DataGrid castedSender =  (DataGrid)sender;
             var selectedShipmentIdentifier = (ShipmentListDTO)castedSender.SelectedValue;
             int shipmentID = selectedShipmentIdentifier.Indentifier;
-            var newForm = new ShipmentDetail(); 
+            var newForm = new ShipmentDetail(displayedShipments.Where(x=>x.Id == shipmentID).FirstOrDefault()); 
             newForm.Show();
         }
 
         private List<ShipmentListDTO> GetShipments(int skip, int take, int truckId =1)
         {
             var shipments = client.GetShipments(new Truck() { Id = 1 }, 0, 25);
+            this.displayedShipments = null;
+            displayedShipments = shipments.ToList();
             List<ShipmentListDTO> shipmentDtos = new List<ShipmentListDTO>();
-            foreach (var shipment in shipments)
+            for(int i=0; i<shipments.Length; i++)
             {
-                var packages = client.GetPackages(shipment);
-                shipmentDtos.Add(new ShipmentListDTO(shipment, packages.ToList()));
+                var packages = client.GetPackages(shipments[i]);
+                shipmentDtos.Add(new ShipmentListDTO(shipments[i], packages.ToList()));
+                displayedShipments[i].Packages = packages.ToList();
             }
 
             return shipmentDtos;

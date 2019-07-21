@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace WpfApp
     /// </summary>
     public partial class ShipmentDetail : Window
     {
-        public ShipmentDetail()
+        private Shipment shipment;
+        public ShipmentDetail(Shipment shipment)
         {
             InitializeComponent();
+            this.shipment = shipment;
         }
     }
 }
