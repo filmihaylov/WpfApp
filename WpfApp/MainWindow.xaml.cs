@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp.DeliveryService;
-
+using WpfApp.DTOs;
 
 namespace WpfApp
 {
@@ -29,6 +29,7 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
+            this.shipmentListGrid.ItemsSource = GetShipments(0, 25, 1);
         }
 
         private async void Button_Click_2(object sender, RoutedEventArgs e)
@@ -47,6 +48,19 @@ namespace WpfApp
 
             var b = client.GetPackages(new Shipment() { Id = 1 });
             var z = "fdfdf";
+        }
+
+        private List<ShipmentListDTO> GetShipments(int skip, int take, int truckId =1)
+        {
+            var shipments = client.GetShipments(new Truck() { Id = 1 }, 0, 25);
+            List<ShipmentListDTO> shipmentDtos = new List<ShipmentListDTO>();
+            foreach (var shipment in shipments)
+            {
+                var packages = client.GetPackages(shipment);
+                shipmentDtos.Add(new ShipmentListDTO(shipment, packages.ToList()));
+            }
+
+            return shipmentDtos;
         }
     }
 }

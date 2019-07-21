@@ -43,7 +43,7 @@ namespace Data
         {
             this.db.Configuration.ProxyCreationEnabled = false;
 
-            var packages = db.Packages.Where(p => p.Id == shipment.Id).Include(p=>p.CustomerReceiver).Include(p=>p.CustomerSender).ToList();
+            var packages = db.Packages.Where(p => p.Shipment.Id == shipment.Id).Include(p=>p.CustomerReceiver).Include(p=>p.CustomerSender).ToList();
 
             return packages;
         }
