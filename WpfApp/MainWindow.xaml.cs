@@ -31,10 +31,19 @@ namespace WpfApp
             InitializeComponent();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
             DbOpp db = new DbOpp();
-            db.CreateDummyData(1);
+            await Task.Run(() =>
+            {
+                db.CreateDummyData(1);
+            });
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var a = client.GetShipments(new Truck() { Id = 1 }, 0, 25);
+            var t = "fdfdf";
         }
     }
 }
