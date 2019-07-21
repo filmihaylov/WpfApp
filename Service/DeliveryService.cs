@@ -37,16 +37,16 @@ namespace Service
             return db.GetPackages(shipment);
         }
 
-        public void UpdateShipment(Shipment shipment, ShipmentState state)
+        public void UpdatePackageState(ShipmentState state,PackageCondition packageCondition, PackageState packageState, string notes, Package package)
         {
-            if (shipment == null)
+            if (package == null)
             {
                 throw new ArgumentNullException("shipment");
             }
 
             DbOpp db = new DbOpp();
 
-            db.UpdateShipment(shipment, state);
+            db.UpdatePackageState(state, packageCondition, packageState, notes, package);
         }
     }
 }

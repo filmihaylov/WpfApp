@@ -48,11 +48,13 @@ namespace Data
             return packages;
         }
 
-        public void UpdateShipment(Shipment shipment, ShipmentState state)
+        public void UpdatePackageState(ShipmentState state, PackageCondition packageCondition, PackageState packageState, string notes, Package package)
         {
-            var shipmentForUpdate = db.Shipments.Where(s => s.Id == shipment.Id).FirstOrDefault();
-
-            shipmentForUpdate.Status = state;
+            var packageForUpdate = db.Packages.Where(p => p.Id == package.Id).FirstOrDefault();
+            packageForUpdate.Condition = packageCondition;
+            packageForUpdate.Status = packageState;
+            packageForUpdate.Notes = notes;
+            packageForUpdate.Shipment.Status = state;
 
             db.SaveChanges();
 

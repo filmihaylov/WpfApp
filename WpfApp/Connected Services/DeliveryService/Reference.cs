@@ -21,11 +21,11 @@ namespace WpfApp.DeliveryService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeliveryService/GetShipments", ReplyAction="http://tempuri.org/IDeliveryService/GetShipmentsResponse")]
         System.Threading.Tasks.Task<Data.Database.Shipment[]> GetShipmentsAsync(Data.Database.Truck truck, int skip, int take);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeliveryService/UpdateShipment", ReplyAction="http://tempuri.org/IDeliveryService/UpdateShipmentResponse")]
-        void UpdateShipment(Data.Database.Shipment shipment, Data.States.ShipmentState state);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeliveryService/UpdatePackageState", ReplyAction="http://tempuri.org/IDeliveryService/UpdatePackageStateResponse")]
+        void UpdatePackageState(Data.States.ShipmentState shipmentState, Data.States.PackageCondition packageCondition, Data.States.PackageState packageState, string notes, Data.Database.Package package);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeliveryService/UpdateShipment", ReplyAction="http://tempuri.org/IDeliveryService/UpdateShipmentResponse")]
-        System.Threading.Tasks.Task UpdateShipmentAsync(Data.Database.Shipment shipment, Data.States.ShipmentState state);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeliveryService/UpdatePackageState", ReplyAction="http://tempuri.org/IDeliveryService/UpdatePackageStateResponse")]
+        System.Threading.Tasks.Task UpdatePackageStateAsync(Data.States.ShipmentState shipmentState, Data.States.PackageCondition packageCondition, Data.States.PackageState packageState, string notes, Data.Database.Package package);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeliveryService/GetPackages", ReplyAction="http://tempuri.org/IDeliveryService/GetPackagesResponse")]
         Data.Database.Package[] GetPackages(Data.Database.Shipment shipment);
@@ -69,12 +69,12 @@ namespace WpfApp.DeliveryService {
             return base.Channel.GetShipmentsAsync(truck, skip, take);
         }
         
-        public void UpdateShipment(Data.Database.Shipment shipment, Data.States.ShipmentState state) {
-            base.Channel.UpdateShipment(shipment, state);
+        public void UpdatePackageState(Data.States.ShipmentState shipmentState, Data.States.PackageCondition packageCondition, Data.States.PackageState packageState, string notes, Data.Database.Package package) {
+            base.Channel.UpdatePackageState(shipmentState, packageCondition, packageState, notes, package);
         }
         
-        public System.Threading.Tasks.Task UpdateShipmentAsync(Data.Database.Shipment shipment, Data.States.ShipmentState state) {
-            return base.Channel.UpdateShipmentAsync(shipment, state);
+        public System.Threading.Tasks.Task UpdatePackageStateAsync(Data.States.ShipmentState shipmentState, Data.States.PackageCondition packageCondition, Data.States.PackageState packageState, string notes, Data.Database.Package package) {
+            return base.Channel.UpdatePackageStateAsync(shipmentState, packageCondition, packageState, notes, package);
         }
         
         public Data.Database.Package[] GetPackages(Data.Database.Shipment shipment) {

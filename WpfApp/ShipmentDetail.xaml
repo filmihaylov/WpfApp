@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="ShipmentDetail" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="text1" HorizontalAlignment="Left" Height="23" Margin="0,191,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.249,3.611"/>
+        <TextBox x:Name="text2" HorizontalAlignment="Left" Height="23" Margin="0,244,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" Height="73" Margin="0,86,0,0" VerticalAlignment="Top" Width="207"/>
+        <ComboBox x:Name="text3" HorizontalAlignment="Left" Margin="0,296,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="text4" HorizontalAlignment="Left" Margin="0,343,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="save" Content="save" HorizontalAlignment="Left" Margin="682,362,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click"/>
+        <TextBox x:Name="notes" HorizontalAlignment="Left" Height="95" Margin="358,244,0,0" TextWrapping="Wrap" Text="notes" VerticalAlignment="Top" Width="197"/>
+        <ComboBox x:Name="text5" HorizontalAlignment="Left" Margin="0,387,0,0" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>

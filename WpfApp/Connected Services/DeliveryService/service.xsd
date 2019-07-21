@@ -18,15 +18,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateShipment">
+  <xs:element name="UpdatePackageState">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Data.Database" minOccurs="0" name="shipment" nillable="true" type="q3:Shipment" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="state" type="q4:ShipmentState" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="shipmentState" type="q3:ShipmentState" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="packageCondition" type="q4:PackageCondition" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Data.States" minOccurs="0" name="packageState" type="q5:PackageState" />
+        <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Data.Database" minOccurs="0" name="package" nillable="true" type="q6:Package" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateShipmentResponse">
+  <xs:element name="UpdatePackageStateResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -34,14 +37,14 @@
   <xs:element name="GetPackages">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Data.Database" minOccurs="0" name="shipment" nillable="true" type="q5:Shipment" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Data.Database" minOccurs="0" name="shipment" nillable="true" type="q7:Shipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPackagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Data.Database" minOccurs="0" name="GetPackagesResult" nillable="true" type="q6:ArrayOfPackage" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Data.Database" minOccurs="0" name="GetPackagesResult" nillable="true" type="q8:ArrayOfPackage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

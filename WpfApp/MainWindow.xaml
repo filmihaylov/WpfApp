@@ -7,14 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Generate Dummy Data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="641,0,0,0" IsCancel="True" Click="Button_Click_2"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Generate Dummy Data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="497,0,0,0" IsCancel="True" Click="Button_Click_2" Grid.Column="1"/>
         <Button Content="TestWCF" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,5,0,0" Click="Button_Click"/>
         <DataGrid Name="shipmentListGrid" HorizontalAlignment="Left" Height="291" VerticalAlignment="Top" Width="772" Margin="10,63,0,0"
                 ScrollViewer.CanContentScroll="True" 
                 ScrollViewer.VerticalScrollBarVisibility="Auto"
                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
                 SelectionMode="Single" SelectionUnit ="FullRow"       
-                MouseLeftButtonUp="shipmentListGrid_CellClicked"
+                MouseLeftButtonUp="shipmentListGrid_CellClicked" Grid.ColumnSpan="2"
                   />
+        <Button x:Name="refresh" Content="refresh" Grid.Column="1" HorizontalAlignment="Left" Margin="146,5,0,0" VerticalAlignment="Top" Width="75" Click="Refresh_Click"/>
+        <Button x:Name="back" Content="back" Grid.Column="1" HorizontalAlignment="Left" Margin="32,395,0,0" VerticalAlignment="Top" Width="75" Click="Back_Click"/>
+        <Button x:Name="next" Content="next" Grid.Column="1" HorizontalAlignment="Left" Margin="376,395,0,0" VerticalAlignment="Top" Width="75" Click="Next_Click"/>
     </Grid>
 </Window>

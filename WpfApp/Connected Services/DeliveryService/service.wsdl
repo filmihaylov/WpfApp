@@ -14,11 +14,11 @@
   <wsdl:message name="IDeliveryService_GetShipments_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetShipmentsResponse" />
   </wsdl:message>
-  <wsdl:message name="IDeliveryService_UpdateShipment_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateShipment" />
+  <wsdl:message name="IDeliveryService_UpdatePackageState_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackageState" />
   </wsdl:message>
-  <wsdl:message name="IDeliveryService_UpdateShipment_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateShipmentResponse" />
+  <wsdl:message name="IDeliveryService_UpdatePackageState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackageStateResponse" />
   </wsdl:message>
   <wsdl:message name="IDeliveryService_GetPackages_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPackages" />
@@ -31,9 +31,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryService/GetShipments" message="tns:IDeliveryService_GetShipments_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryService/GetShipmentsResponse" message="tns:IDeliveryService_GetShipments_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateShipment">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryService/UpdateShipment" message="tns:IDeliveryService_UpdateShipment_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryService/UpdateShipmentResponse" message="tns:IDeliveryService_UpdateShipment_OutputMessage" />
+    <wsdl:operation name="UpdatePackageState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryService/UpdatePackageState" message="tns:IDeliveryService_UpdatePackageState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryService/UpdatePackageStateResponse" message="tns:IDeliveryService_UpdatePackageState_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPackages">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryService/GetPackages" message="tns:IDeliveryService_GetPackages_InputMessage" />
@@ -51,8 +51,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateShipment">
-      <soap:operation soapAction="http://tempuri.org/IDeliveryService/UpdateShipment" style="document" />
+    <wsdl:operation name="UpdatePackageState">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryService/UpdatePackageState" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

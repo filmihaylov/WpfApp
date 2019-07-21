@@ -18,7 +18,7 @@ namespace Service
         List<Shipment> GetShipments(Truck truck, int skip = 0, int take = 25);
 
         [OperationContract]
-        void UpdateShipment(Shipment shipment, ShipmentState state);
+        void UpdatePackageState(ShipmentState shipmentState, PackageCondition packageCondition, PackageState packageState, string notes, Package package);
         [OperationContract]
         List<Package> GetPackages(Shipment shipment);
     }

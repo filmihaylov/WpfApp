@@ -27,6 +27,7 @@ namespace WpfApp
     {
         private DeliveryServiceClient client = new DeliveryServiceClient();
         private List<Shipment> displayedShipments;
+        private ShipmentDetail window;
         public MainWindow()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //method for testing
             var a = client.GetShipments(new Truck() { Id = 1 }, 0, 25);
             var t = "fdfdf";
 
@@ -56,8 +58,9 @@ namespace WpfApp
             DataGrid castedSender =  (DataGrid)sender;
             var selectedShipmentIdentifier = (ShipmentListDTO)castedSender.SelectedValue;
             int shipmentID = selectedShipmentIdentifier.Indentifier;
-            var newForm = new ShipmentDetail(displayedShipments.Where(x=>x.Id == shipmentID).FirstOrDefault()); 
-            newForm.Show();
+            this.window = new ShipmentDetail(displayedShipments.Where(x=>x.Id == shipmentID).FirstOrDefault());
+            this.window.Owner = this;
+            this.window.Show();
         }
 
         private List<ShipmentListDTO> GetShipments(int skip, int take, int truckId =1)
@@ -74,6 +77,21 @@ namespace WpfApp
             }
 
             return shipmentDtos;
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            this.shipmentListGrid.ItemsSource = GetShipments(0, 25, 1);
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.shipmentListGrid.ItemsSource = GetShipments(0, 25, 1);
+        }
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            this.shipmentListGrid.ItemsSource = GetShipments(0, 25, 1);
         }
     }
 }

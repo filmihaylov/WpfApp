@@ -10,21 +10,15 @@ namespace WpfApp.DTOs
 {
     class ShipmentDetailDTO
     {
-        private Shipment shipment;
+        public Shipment shipment;
         public ShipmentDetailDTO(Shipment shipment)
         {
             this.shipment = shipment;
         }
 
         public int Indentifier { get { return this.shipment.Id; } }
-        public ShipmentState Status { get { return this.shipment.Status; } }
-        public string DestinationAdress
-        {
-            get
-            {
-                return $"Adress Country: {shipment.AdressDelivery.Country}" +
-                    $" City: {shipment.AdressDelivery.City} Street: {shipment.AdressDelivery.Street}";
-            }
-        }
+
+        public List<Package> Packages { get { return this.shipment.Packages; } }
+        
     }
 }
