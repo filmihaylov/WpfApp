@@ -28,10 +28,14 @@ namespace WpfApp
         private DeliveryServiceClient client = new DeliveryServiceClient();
         private List<Shipment> displayedShipments;
         private ShipmentDetail window;
+        private int _skip;
+        private int _take;
         public MainWindow()
         {
             InitializeComponent();
             this.shipmentListGrid.ItemsSource = GetShipments(0, 25, 1);
+            this._skip = 0;
+            this._take = 25;
         }
 
         private async void Button_Click_2(object sender, RoutedEventArgs e)
@@ -65,7 +69,7 @@ namespace WpfApp
 
         private List<ShipmentListDTO> GetShipments(int skip, int take, int truckId =1)
         {
-            var shipments = client.GetShipments(new Truck() { Id = 1 }, 0, 25);
+            var shipments = client.GetShipments(new Truck() { Id = 1 }, skip, take);
             this.displayedShipments = null;
             displayedShipments = shipments.ToList();
             List<ShipmentListDTO> shipmentDtos = new List<ShipmentListDTO>();
@@ -86,12 +90,16 @@ namespace WpfApp
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            this.shipmentListGrid.ItemsSource = GetShipments(0, 25, 1);
+            this._skip -= 25;
+            this._take -= 25;
+            this.shipmentListGrid.ItemsSource = GetShipments(this._skip, this._take, 1);
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            this.shipmentListGrid.ItemsSource = GetShipments(0, 25, 1);
+            this._skip += 25;
+            this._take += 25;
+            this.shipmentListGrid.ItemsSource = GetShipments(this._skip, this._take, 1);
         }
     }
 }

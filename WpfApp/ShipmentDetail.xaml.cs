@@ -42,6 +42,15 @@ namespace WpfApp
 
                 stackPanel.Children.Add(button);
             }
+            this.selectedPackage = this.shipment.Packages[0];
+            text1.Text = this.shipment.Packages[0].CustomerReceiver.Name;
+            text2.Text = this.shipment.Packages[0].CustomerSender.Name;
+            text3.ItemsSource = Enum.GetValues(typeof(PackageCondition)).Cast<PackageCondition>();
+            text4.ItemsSource = Enum.GetValues(typeof(PackageState)).Cast<PackageState>();
+            text5.ItemsSource = Enum.GetValues(typeof(ShipmentState)).Cast<ShipmentState>();
+            text3.SelectedItem = (PackageCondition)this.shipment.Packages[0].Condition;
+            text4.SelectedItem = (PackageState)this.shipment.Packages[0].Status;
+            text5.SelectedItem = (ShipmentState)this.shipment.shipment.Status;
         }
 
         private void btnPackage_Click(object sender, RoutedEventArgs e)
@@ -54,6 +63,9 @@ namespace WpfApp
             text3.ItemsSource = Enum.GetValues(typeof(PackageCondition)).Cast<PackageCondition>();
             text4.ItemsSource = Enum.GetValues(typeof(PackageState)).Cast<PackageState>();
             text5.ItemsSource = Enum.GetValues(typeof(ShipmentState)).Cast<ShipmentState>();
+            text3.SelectedItem = (PackageCondition)this.selectedPackage.Condition;
+            text4.SelectedItem = (PackageState)this.selectedPackage.Status;
+            text5.SelectedItem = (ShipmentState)this.shipment.shipment.Status;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
